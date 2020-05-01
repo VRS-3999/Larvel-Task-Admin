@@ -8,7 +8,9 @@ use App\Task;
 class TaskController extends Controller
 {
     public function index(){
-        return view('tasks.index');
+        $tasks = Task::all();
+
+        return view('tasks.index',compact('tasks'));
     }
 
     public function store(Request $request){
@@ -21,6 +23,10 @@ class TaskController extends Controller
        Task::Create([
            'title' => $request->title
        ]);
+
+       session()->flash('msg','Task has been created');
+
+       return redirect('/');
 
     }
 }

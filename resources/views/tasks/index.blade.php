@@ -12,6 +12,9 @@
                 @endforeach
             @endif
         -->
+        @if(session()->has('msg'))
+            <div class="alert alert-success">{{ session()->get('msg') }}</div>
+        @endif
 
             <div class="card">
                 <div class="card-header">
@@ -46,12 +49,14 @@
                     <table class= "table table-bordered">
                         <tr>
                             <th>Task</th>
-                            <th>Action</th>
+                            <th style="width:2em;">Action</th>
                         </tr>
+                        @foreach ($tasks as  $task)
                         <tr>
-                            <td>Task</td>
+                            <td>{{ $task->title }}</td>
                             <td><button class="btn btn-danger">Delete</button></td>
                         </tr>
+                        @endforeach
                     </table>
                 </div>
             </div>
