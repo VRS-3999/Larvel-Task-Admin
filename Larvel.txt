@@ -1,0 +1,4 @@
+1-> composer
+2-> php artisan make:model Task -mc  (migration create)
+3-> php artisan migrate
+4->extension pdo_pgsql in php.ini
