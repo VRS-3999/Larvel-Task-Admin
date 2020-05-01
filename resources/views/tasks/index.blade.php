@@ -54,7 +54,13 @@
                         @foreach ($tasks as  $task)
                         <tr>
                             <td>{{ $task->title }}</td>
-                            <td><button class="btn btn-danger">Delete</button></td>
+                            <td>
+                            <form action="{{ route('title.destroy', $task->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            </td>
                         </tr>
                         @endforeach
                     </table>
